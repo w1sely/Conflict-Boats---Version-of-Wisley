@@ -20,7 +20,8 @@ public class RightField extends JPanel {
    for (int j = 0 ; j < 15; j++){
     jb[i][j] = new JButton();
     jb[i][j].setPreferredSize(new Dimension(10,10));
-    jb[i][j].setBackground(Color.CYAN);
+    ImageIcon trump=new ImageIcon (this.getClass().getResource("donald trump.jpg"));
+     jb[i][j].setIcon(Trump);
     middlePanel.add(jb[i][j]);
    }
   }
