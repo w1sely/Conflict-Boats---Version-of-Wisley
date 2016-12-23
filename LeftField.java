@@ -20,11 +20,14 @@ public class LeftField extends JPanel{
   
   JPanel middlePanel = new JPanel();
   middlePanel.setLayout(new GridLayout(15,15));
+  ActionListener buttonListen = new buttonListener();
   for (int i = 0; i < 15; i++){
    for (int j = 0 ; j < 15; j++){
     jb[i][j] = new JButton();
     jb[i][j].setPreferredSize(new Dimension(10,10));
-    jb[i][j].setBackground(Color.CYAN);
+    ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
+    jb[i][j].setIcon(Water);
+    jb[i][j].addActionListener(buttonListen);
     middlePanel.add(jb[i][j]);
    }
   }
@@ -49,11 +52,44 @@ bombPanel.add(missileB);
 bombPanel.add(airStrikeB);
 bombPanel.add(bombardmentB);
 
+bombardmentB.addActionListener(new ActionListener (){
+ public void actionPerformed(ActionEvent e){
+  JOptionPane.showMessageDialog (null, "But let's be efficient as of right now");
+  }
+  
+  
+  }); 
+  
 
 missileB.addActionListener(new ActionListener (){
   
   public void actionPerformed(ActionEvent e){
-  JOptionPane.showMessageDialog (null, "Hey niggers im learning");
+  JOptionPane.showMessageDialog (null, "Hi im probably going to reinstall");
+  
+  }
+  
+  
+  }); 
+
+missileB.addActionListener(new ActionListener (){
+  
+  public void actionPerformed(ActionEvent e){
+  JOptionPane.showMessageDialog (null, "Hi im probably going to reinstall");
+  
+  }
+  
+  
+  }); 
+
+airStrikeB.addActionListener(new ActionListener (){
+ public void actionPerformed(ActionEvent e){
+  JOptionPane.showMessageDialog (null, "CSGO I mean let's be honest");
+  }
+  });
+ 
+bombardmentB.addActionListener(new ActionListener (){
+ public void actionPerformed(ActionEvent e){
+  JOptionPane.showMessageDialog (null, "But let's be efficient as of right now");
   }
   
   
@@ -76,5 +112,18 @@ missileB.addActionListener(new ActionListener (){
   
   
  }
+ class buttonListener implements ActionListener {
+   public void actionPerformed(ActionEvent event) {
+     for(int i=0;i<jb.length;i++){
+       for(int j=0;j<jb[0].length;j++){
+         if(jb[i][j]==event.getSource()){
+           jb[i][j].setEnabled(false);
+           ImageIcon xImage=new ImageIcon (this.getClass().getResource("x.jpg"));
+           jb[i][j].setIcon(xImage);
+         }
+       }
+     }
+   }
+ } 
 
 }
