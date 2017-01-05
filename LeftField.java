@@ -62,7 +62,7 @@ public class LeftField extends JPanel{
     
     bombardmentB.addActionListener(new ActionListener (){
       public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog (null, "But let's be efficient as of right now");
+        JOptionPane.showMessageDialog (null, "First action listener");
       }
       
       
@@ -71,7 +71,7 @@ public class LeftField extends JPanel{
     missileB.addActionListener(new ActionListener (){
       
       public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog (null, "Hi im probably going to reinstall");
+        JOptionPane.showMessageDialog (null, "Second action listener");
         
       }
       
@@ -80,7 +80,7 @@ public class LeftField extends JPanel{
     
     airStrikeB.addActionListener(new ActionListener (){
       public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog (null, "CSGO I mean let's be honest");
+        JOptionPane.showMessageDialog (null, "Third action listener");
       }
     });
     
@@ -112,28 +112,51 @@ public class LeftField extends JPanel{
     
     int buttonpress=1;
     
+    int[] storea = new int[5];
+    int[] storeb = new int[5];
+    
+    int reference [][]; {
+      reference = new int [15][15];
+      
+      
+     //Creating the reference array and setting all values to -1 
+      for(int a=0;a<15;a++){
+        for(int b=0;b<15;b++){
+          
+          reference[a][b]=-1;
+          
+        }
+      }
+    }
+    
+    
     public void actionPerformed(ActionEvent event) {
+      
+      
       
       for(int i=0;i<jb.length;i++){
         for(int j=0;j<jb[0].length;j++){
           
           
           if(jb[i][j]==event.getSource()){
-            buttonpress++;
+            buttonpress++;//Add one to button press after button is clicked
             jb[i][j].setEnabled(true);
             ImageIcon xImage=new ImageIcon (this.getClass().getResource("x.jpg"));
             jb[i][j].setIcon(xImage);
             
-            int[] storea = new int[5];
-            int[] storeb = new int[5];
+                                             
+            reference[i][j]=0;
+            
+            JOptionPane.showMessageDialog (null, reference[1][1]);
+            
             storea[buttonpress] = i;
             storeb[buttonpress] = j;      
-            JOptionPane.showMessageDialog (null, "The value of i is:" + storea[1] + "The value of j is:" + storeb[1]);
+            JOptionPane.showMessageDialog (null, "The value of i is: " + storea[buttonpress] + "The value of j is: " + storeb[buttonpress]);//Test to see if values are stored
             
           }
           
           
-          if (buttonpress > 5){ //if button press more than 5 times
+          if (buttonpress >= 5){ //if button press more than 5 times
             JPanel middlePanel = new JPanel();
             middlePanel.setLayout(new GridLayout(15,15));
             for (i = 0; i < 15; i++){
@@ -142,19 +165,26 @@ public class LeftField extends JPanel{
                 jb[i][j].setPreferredSize(new Dimension(10,10));
                 ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
                 jb[i][j].setIcon(Water);
-                middlePanel.add(jb[i][j]);
                 
+                if (reference[i][j]==0){
+                Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
+                jb[i][j].setIcon(Water);
+                }
+                middlePanel.add(jb[i][j]);                
               }     
             }
-          
-          
-          
-          
-          
+            
+            
+            
+            
+            
+          }
         }
+        
+        
       }
-    }
-  } 
-  
+    } 
+    
+  }
 }
-}
+
