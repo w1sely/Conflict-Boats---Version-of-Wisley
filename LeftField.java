@@ -90,7 +90,7 @@ public class LeftField extends JPanel{
     //Cash Panel
     cashPanel.setLayout(new GridLayout(2,1));
     JLabel cashDisplay = new JLabel("                                        CASH: $" + cash);
-    JButton done = new JButton("DONE");
+    JButton done = new JButton("CLEAR");
     cashPanel.add(cashDisplay);
     cashPanel.add(done);
     add(bottomPanel, BorderLayout.SOUTH);
@@ -98,7 +98,7 @@ public class LeftField extends JPanel{
     done.addActionListener(new ActionListener (){
       
       public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog (null, "But let's be efficient as of right now");
+        JOptionPane.showMessageDialog (null, "I want to clear everything");
       }
       
       
@@ -127,7 +127,6 @@ public class LeftField extends JPanel{
             int[] storea = new int[5];
             int[] storeb = new int[5];
             storea[buttonpress] = i;
-            
             storeb[buttonpress] = j;      
             JOptionPane.showMessageDialog (null, "The value of i is:" + storea[1] + "The value of j is:" + storeb[1]);
             
