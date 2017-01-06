@@ -155,14 +155,9 @@ public class LeftField extends JPanel{
             
           }
           
-          
-          if (buttonpress >= 5){ //if button press more than 5 times
-            JPanel middlePanel = new JPanel();
-            middlePanel.setLayout(new GridLayout(15,15));
+       if (buttonpress >= 5){ //if button press more than 5 times
             for (i = 0; i < 15; i++){
               for (j = 0 ; j < 15; j++){
-                jb[i][j] = new JButton();
-                jb[i][j].setPreferredSize(new Dimension(10,10));
                 ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
                 jb[i][j].setIcon(Water);
                 
@@ -170,10 +165,9 @@ public class LeftField extends JPanel{
                 Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
                 jb[i][j].setIcon(Water);
                 }
-                middlePanel.add(jb[i][j]);                
+    
               }     
             }
-            
             
             
             
@@ -187,4 +181,5 @@ public class LeftField extends JPanel{
     
   }
 }
+
 
