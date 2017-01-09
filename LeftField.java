@@ -119,7 +119,7 @@ public class LeftField extends JPanel{
       reference = new int [15][15];
       
       
-     //Creating the reference array and setting all values to -1 
+      //Creating the reference array and setting all values to -1 
       for(int a=0;a<15;a++){
         for(int b=0;b<15;b++){
           
@@ -144,42 +144,25 @@ public class LeftField extends JPanel{
             ImageIcon xImage=new ImageIcon (this.getClass().getResource("x.jpg"));
             jb[i][j].setIcon(xImage);
             
-                                             
-            reference[i][j]=0;
             
-            JOptionPane.showMessageDialog (null, reference[1][1]);
-            
-            storea[buttonpress] = i;
-            storeb[buttonpress] = j;      
-            JOptionPane.showMessageDialog (null, "The value of i is: " + storea[buttonpress] + "The value of j is: " + storeb[buttonpress]);//Test to see if values are stored
             
           }
           
-       if (buttonpress >= 5){ //if button press more than 5 times
+          if (buttonpress >100){ //if button press more than 5 times
             for (i = 0; i < 15; i++){
               for (j = 0 ; j < 15; j++){
                 ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
                 jb[i][j].setIcon(Water);
                 
-                if (reference[i][j]==0){
-                Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
-                jb[i][j].setIcon(Water);
-                }
-    
+                
               }     
-            }
-            
-            
-            
-            
-          }
-        }
-        
-        
-      }
-    } 
-    
-  }
-}
+            }//end of for loop            
+          }//end of buttonpress if statement
+        }       
+      }//end of for loop for buttons
+    }//end of action listener         
+  }//end of action listener class
+  
+}//end of LeftField class
 
 
