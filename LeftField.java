@@ -13,7 +13,7 @@ public class LeftField extends JPanel{
   
   
   
-  private void init() {
+  public void init() {
     setLayout(new BorderLayout());
     JLabel title = new JLabel("                                               Player 1");
     add(title, BorderLayout.NORTH);
@@ -163,6 +163,21 @@ public class LeftField extends JPanel{
     }//end of action listener         
   }//end of action listener class
   
-}//end of LeftField class
-
-
+  //Action Listener for CLEAR Button
+  public void actionPerformed(ActionEvent event) {
+    if(done==event.getSource()){
+      for (i = 0; i < 15; i++){
+        for (j = 0 ; j < 15; j++){
+          ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
+          jb[i][j].setIcon(Water);
+        }
+      }
+      
+    }//end of LeftField class
+    
+    
+  }//end of whole THING HERE
+  
+  
+  
+  
