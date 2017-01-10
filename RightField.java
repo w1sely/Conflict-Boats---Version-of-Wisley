@@ -1,5 +1,6 @@
 
 
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -89,7 +90,7 @@ public class RightField extends JPanel{
     
     
     
-    //Cash Panel
+    //CLEAR Panel
     cashPanel.setLayout(new GridLayout(2,1));
     JLabel cashDisplay = new JLabel("                                        CASH: $" + cash);
     JButton done = new JButton("CLEAR");
@@ -101,6 +102,13 @@ public class RightField extends JPanel{
       
       public void actionPerformed(ActionEvent e){
         JOptionPane.showMessageDialog (null, "I want to clear everything");
+        
+        for (int i = 0; i < 15; i++){
+              for (int j = 0 ; j < 15; j++){
+                ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
+                jb[i][j].setIcon(Water);
+              }
+        }
       }
       
       
@@ -164,6 +172,6 @@ public class RightField extends JPanel{
     }//end of action listener         
   }//end of action listener class
   
-}//end of Rightfield class
+}//end of WHOLE THING
 
 
