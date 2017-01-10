@@ -1,4 +1,5 @@
 
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -163,6 +164,6 @@ public class RightField extends JPanel{
     }//end of action listener         
   }//end of action listener class
   
-}//end of LeftField class
+}//end of Rightfield class
 
 
