@@ -7,13 +7,16 @@ public class LeftField extends JPanel{
   
   JButton[][] jb = new JButton[15][15];
   int cash = 4000;
-  public LeftField(){
-    init();
+  Player p1 = new Player();
+  Divider divider;
+  
+  public LeftField(Divider d){
+    divider = d;
+    begin();
   }
   
   
-  
-  public void init() {
+  private void begin() {
     setLayout(new BorderLayout());
     JLabel title = new JLabel("                                               Player 1");
     add(title, BorderLayout.NORTH);
@@ -108,7 +111,6 @@ public class LeftField extends JPanel{
         }
       }
       
-      
     }); 
     
   }
@@ -127,22 +129,54 @@ public class LeftField extends JPanel{
         for(int j=0;j<jb[0].length;j++){
           
           
+          
+          
           if(jb[i][j]==event.getSource()){          
             jb[i][j].setEnabled(true);
             ImageIcon xImage=new ImageIcon (this.getClass().getResource("x.jpg"));
+            
+            
+            
+               //Stores all places on the board to -1
+              int [][] referenceBoard= new int [15][15];
+              for(int row=0 ; row < 15 ; row++){
+                for(int column=0 ; column < 15 ; column++ ){
+                referenceBoard[row][column]=-1;
+                }
+              }
+
+           
+  
+            //Boats placement 
+            for(int a = 0; a < Integer.parseInt(divider.size[0]); a++){
+                    ImageIcon destroyer=new ImageIcon (this.getClass().getResource("destroyer.jpg"));
+           jb[i][j+a].setIcon(destroyer); 
+           referenceBoard[a][j+a]=-1;
+          
+          }//end of for loop
+            
+             if(referenceBoard[i][j]==-1){   
+                            
+                jb[i][j].setEnabled(true);
+           xImage=new ImageIcon (this.getClass().getResource("x.jpg"));
             jb[i][j].setIcon(xImage);
+              
+              
+         
+              }   
+  
             
+          
             
-            
-          }
-        }
+        }//end of if statement 
       }
-    }
+    }//end of for loop
   }
-             
+  }//end of action listener
+  
+  
     
   }//end of whole THING HERE
-  
-  
+
   
   
