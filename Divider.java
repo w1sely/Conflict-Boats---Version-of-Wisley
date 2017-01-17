@@ -1,17 +1,31 @@
-
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
 public class Divider extends JPanel {
   
-  JButton[][] jb = new JButton[15][15];
-  public Divider()
+  static JButton[] boatButtons = new JButton[5];
+  
+  public final String[] size = new String[1];
+  
+  LeftField leftField;
+  
+  public Divider(LeftField fieldLeft)
   {
+    leftField = fieldLeft;
     init();
   }
+  
   private void init() {
-    ImageIcon Water=new ImageIcon (this.getClass().getResource("Water.jpg"));
+    
+    //Creates and stores -1 in a reference array
+              int [][] referenceBoard= new int [15][15];
+              for(int row=0 ; row < 15 ; row++){
+                for(int column=0 ; column < 15 ; column++ ){
+                referenceBoard[row][column]=-1;
+                }
+              }
+    
     ImageIcon ac=new ImageIcon (this.getClass().getResource("aircraftcarrier.jpg"));
     ImageIcon destroyer=new ImageIcon (this.getClass().getResource("destroyer.jpg"));
     ImageIcon sub=new ImageIcon (this.getClass().getResource("submarine.jpg"));
@@ -26,22 +40,58 @@ public class Divider extends JPanel {
     add(title, BorderLayout.NORTH);
     
     JPanel middlePanel = new JPanel();
-    middlePanel.setLayout(new GridLayout(15,15));
+    middlePanel.setLayout(new GridLayout(6 , 1));
     // ActionListener buttonListen = new ActionListener();
-    for (int i = 7; i < 8; i++){
-      for (int j = 0 ; j < 8; j++){
-        jb[i][j] = new JButton();
-        jb[i][j].setPreferredSize(new Dimension(10,10));                                
-        //  jb[i][j].addActionListener(buttonListen);
-        middlePanel.add(jb[i][j]);
+    for (int i = 4; i >= 0; i--){
+        boatButtons[i] = new JButton();
+        
+        //GOOD ACTION LISTENER
+    boatButtons[i].addActionListener(new ActionListener (){
+      public void actionPerformed(ActionEvent e){
+        for (int i = 0; i < 15; i++){
+      for (int j = 0 ; j < 15; j++){
+
+        leftField.jb[i][j].setEnabled(true);
       }
+        }
+        
+        String Direction = null;
+            
+      //Gives user option to choose what direction to place their ships
+      Direction = JOptionPane.showInputDialog (null, "Please choose a direction");
+      
+     
+      
     }
-    jb[7][0].setIcon(ac);
-    jb[7][1].setIcon(destroyer);
-    jb[7][2].setIcon(sub);
-    jb[7][3].setIcon(patrol);
+    });
+        
+        boatButtons[i].setName((i+1)+"");
+        boatButtons[i].setPreferredSize(new Dimension(10,10));                                
+        middlePanel.add(boatButtons[i]);
+        boatButtons[i].addActionListener(new ActionListener(){
+          
+          public void actionPerformed(ActionEvent event) {
+            
+            
+            System.out.println(((JButton)event.getSource()).getName());
+            size[0] = ((JButton)event.getSource()).getName();
+            
+          }
+          
+        });
+      
+    }
+    boatButtons[4].setIcon(ac);
+    boatButtons[3].setIcon(destroyer);
+    boatButtons[2].setIcon(sub);
+    boatButtons[1].setIcon(patrol);
     
     add(middlePanel, BorderLayout.CENTER);
     
   }
 }
+  
+
+
+
+
