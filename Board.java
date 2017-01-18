@@ -13,8 +13,10 @@ public class Board {
   frame.setSize(1900, 1000);
   frame.setLayout(new GridLayout(1, 3));
  
+  RightField rightField = new RightField();
   LeftField leftField = new LeftField();
   Divider divider = new Divider(leftField);
+  Divider divider2 = new Divider (rightField);
   
   frame.add(leftField);
   frame.add(divider);
