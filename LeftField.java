@@ -152,8 +152,16 @@ public class LeftField extends JPanel{
   class buttonListener implements ActionListener {
     
     public void actionPerformed(ActionEvent event) {
+      
+    
+      
+      
+      
+      
+      }
+      
  
-    }
+    
     
     boolean isPositionValid(int i, int j, String direction, int size){
       boolean result = true;
@@ -184,7 +192,7 @@ public class LeftField extends JPanel{
   
   
   
-  
+
 }//end of whole LeftField class
 
 
